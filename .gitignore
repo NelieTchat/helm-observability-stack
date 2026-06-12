@@ -1,0 +1,23 @@
+# Terraform
+.terraform/
+.terraform.lock.hcl
+*.tfstate
+*.tfstate.backup
+*.tfplan
+*.tfvars
+
+# Secrets
+.env
+secrets.yaml
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# Helm
+charts/*/charts/
+*.tgz
+
+# OS
+.DS_Store
