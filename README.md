@@ -16,7 +16,8 @@ from scratch, Datadog APM + metrics + logs, Terraform IaC, and GitHub Actions CI
 
 ## Architecture
 
-![Architecture](docs/screenshots/architecture.png)
+![Architecture](docs/screenshots/helm-architecture.png)
+
 ```
 GitHub Actions
     ├── docker.yml ──► builds sample-app ──► GHCR
