@@ -21,3 +21,6 @@ charts/*/charts/
 
 # OS
 .DS_Store
+
+# Personal study notes
+PROJECT-NOTES.md
