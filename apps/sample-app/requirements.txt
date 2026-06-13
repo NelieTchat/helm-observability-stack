@@ -1,0 +1,4 @@
+flask==3.0.3
+prometheus-client==0.20.0
+ddtrace==2.7.0
+gunicorn==22.0.0
