@@ -31,23 +31,6 @@ GitHub Actions → Helm → EKS (Datadog Agent + Sample App)
 **Flow 3 — Observability**
 Sample App → Traces/Metrics/Logs → Datadog Agent → Datadog Cloud
 
-## Repository Structure
-
-```
-├── terraform/
-│   ├── modules/
-│   │   ├── vpc/          # VPC, subnets, NAT gateways
-│   │   └── eks/          # EKS cluster, node groups, IRSA
-│   └── environments/
-│       └── dev/          # Dev environment root config
-├── charts/
-│   ├── datadog-agent/    # Custom chart — DatadogAgent CR
-│   └── app-metrics/      # Custom chart — sample app
-├── apps/
-│   └── sample-app/       # Flask app with Datadog APM
-└── .github/
-    └── workflows/        # CI/CD pipelines
-```
 
 ## Stack
 
@@ -80,4 +63,4 @@ Real deployment to AWS EKS — screenshots taken from live Datadog dashboard.
 ## Author
 
 DevOps/Cloud Engineer | AWS Solutions Architect Associate
-```
+ENDOFFILE
