@@ -1,3 +1,5 @@
+Here is your complete corrected README — replace everything in your file with this:
+
 ```markdown
 # helm-observability-stack
 
@@ -18,18 +20,16 @@ from scratch, Datadog APM + metrics + logs, Terraform IaC, and GitHub Actions CI
 
 ![Architecture](docs/screenshots/helm-architecture.png)
 
-```
-GitHub Actions
-    ├── docker.yml ──► builds sample-app ──► GHCR
-    ├── helm.yml ───► lints + deploys Helm charts ──► EKS
-    └── terraform.yml ──► provisions AWS infrastructure
+## How It Works
 
-AWS
-    ├── VPC (3 AZs, public/private subnets, NAT Gateways)
-    └── EKS
-          ├── datadog-agent (DaemonSet — metrics, logs, APM)
-          └── app-metrics (sample Flask app with ddtrace)
-```
+**Flow 1 — Infrastructure**
+GitHub Actions → Terraform → AWS VPC + EKS
+
+**Flow 2 — Deployment**
+GitHub Actions → Helm → EKS (Datadog Agent + Sample App)
+
+**Flow 3 — Observability**
+Sample App → Traces/Metrics/Logs → Datadog Agent → Datadog Cloud
 
 ## Repository Structure
 
@@ -58,11 +58,6 @@ AWS
 - **CI/CD**: GitHub Actions with OIDC (no static credentials)
 - **App**: Python Flask + ddtrace + Prometheus metrics
 
-## Author
-
-DevOps/Cloud Engineer | AWS Solutions Architect Associate
-```
-
 ## Live Demo
 
 Real deployment to AWS EKS — screenshots taken from live Datadog dashboard.
@@ -81,3 +76,8 @@ Real deployment to AWS EKS — screenshots taken from live Datadog dashboard.
 
 ### Container Images — detected by Datadog agent
 ![Container Images](docs/screenshots/running-container.png)
+
+## Author
+
+DevOps/Cloud Engineer | AWS Solutions Architect Associate
+```
