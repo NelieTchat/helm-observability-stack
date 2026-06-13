@@ -61,3 +61,21 @@ AWS
 DevOps/Cloud Engineer | AWS Solutions Architect Associate
 ```
 
+## Live Demo
+
+Real deployment to AWS EKS — screenshots taken from live Datadog dashboard.
+
+### Host List — 2 EKS nodes reporting to Datadog
+![Host List](docs/screenshots/datadog-host-list.png)
+
+### Kubernetes Explorer — all 12 pods running
+![Kubernetes Explorer](docs/screenshots/kubernetes-explorer.png)
+
+### Resource Utilization — live CPU graphs
+![Resource Utilization](docs/screenshots/resource-utilization.png)
+
+### Live Monitoring — cluster metrics
+![Live Monitoring](docs/screenshots/live-moniroring.png)
+
+### Container Images — detected by Datadog agent
+![Container Images](docs/screenshots/running-container.png)
