@@ -1,6 +1,3 @@
-Here is your complete corrected README — replace everything in your file with this:
-
-```markdown
 # helm-observability-stack
 
 Production-grade observability platform on AWS EKS — custom Helm charts written
@@ -30,7 +27,6 @@ GitHub Actions → Helm → EKS (Datadog Agent + Sample App)
 
 **Flow 3 — Observability**
 Sample App → Traces/Metrics/Logs → Datadog Agent → Datadog Cloud
-
 
 ## Stack
 
@@ -63,4 +59,3 @@ Real deployment to AWS EKS — screenshots taken from live Datadog dashboard.
 ## Author
 
 DevOps/Cloud Engineer | AWS Solutions Architect Associate
-ENDOFFILE
