@@ -1,0 +1,53 @@
+apiVersion: datadoghq.com/v2alpha1
+kind: DatadogAgent
+metadata:
+  name: {{ include "datadog-agent.fullname" . }}
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "datadog-agent.labels" . | nindent 4 }}
+spec:
+  global:
+    clusterName: {{ .Values.clusterName | quote }}
+    site: {{ .Values.site | quote }}
+    credentials:
+      apiSecret:
+        secretName: {{ .Values.apiKeySecretName }}
+        keyName: api-key
+
+  override:
+    nodeAgent:
+      image:
+        name: {{ .Values.agent.image.repository }}:{{ .Values.agent.image.tag }}
+      serviceAccountAnnotations:
+        {{- if .Values.irsaRoleArn }}
+        eks.amazonaws.com/role-arn: {{ .Values.irsaRoleArn | quote }}
+        {{- end }}
+      containers:
+        agent:
+          resources:
+            {{- toYaml .Values.agent.resources | nindent 12 }}
+
+    clusterAgent:
+      {{- if .Values.clusterAgent.enabled }}
+      replicas: {{ .Values.clusterAgent.replicas }}
+      image:
+        name: {{ .Values.clusterAgent.image.repository }}:{{ .Values.clusterAgent.image.tag }}
+      containers:
+        clusterAgent:
+          resources:
+            {{- toYaml .Values.clusterAgent.resources | nindent 12 }}
+      {{- end }}
+
+  features:
+    apm:
+      enabled: {{ .Values.apm.enabled }}
+      hostPortConfig:
+        enabled: true
+        hostPort: 8126
+
+    logCollection:
+      enabled: {{ .Values.logs.enabled }}
+      containerCollectAll: {{ .Values.logs.containerCollectAll }}
+
+    liveProcessCollection:
+      enabled: {{ .Values.processAgent.enabled }}

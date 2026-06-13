@@ -1,0 +1,43 @@
+site: us5.datadoghq.com
+
+clusterName: helm-obs-dev
+
+apiKeySecretName: datadog-secret
+
+agent:
+  image:
+    repository: gcr.io/datadoghq/agent
+    tag: "7.52.0"
+  resources:
+    requests:
+      cpu: 200m
+      memory: 256Mi
+    limits:
+      cpu: 500m
+      memory: 512Mi
+
+clusterAgent:
+  enabled: true
+  replicas: 1
+  image:
+    repository: gcr.io/datadoghq/cluster-agent
+    tag: "7.52.0"
+  resources:
+    requests:
+      cpu: 100m
+      memory: 128Mi
+    limits:
+      cpu: 300m
+      memory: 256Mi
+
+apm:
+  enabled: true
+
+logs:
+  enabled: true
+  containerCollectAll: true
+
+processAgent:
+  enabled: true
+
+irsaRoleArn: ""

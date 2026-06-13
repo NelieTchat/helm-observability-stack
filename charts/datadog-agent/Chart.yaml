@@ -1,0 +1,6 @@
+apiVersion: v2
+name: datadog-agent
+description: Deploys the Datadog Agent via the Datadog Operator on EKS
+type: application
+version: 0.1.0
+appVersion: "7.52.0"
